@@ -3,6 +3,7 @@ library(bslib)
 library(dplyr)
 library(ggplot2)
 library(plotly)
+library(DT)
 
 ui <- bslib::page_fluid(
   titlePanel("Exploration des Diamants"),
@@ -34,7 +35,8 @@ ui <- bslib::page_fluid(
       
     ),
     mainPanel(
-      plotly::plotlyOutput("Plotdiam")
+      plotly::plotlyOutput("Plotdiam"),
+      DTOutput("tblo")
     )
   )
 )
@@ -58,6 +60,10 @@ server <- function(input, output, session){
     
     output$Plotdiam <- plotly::renderPlotly({
       plotly::ggplotly(rv$plot)
+    })
+    
+    output$tblo <- renderDT({
+      rv$tab
     })
     
   })
