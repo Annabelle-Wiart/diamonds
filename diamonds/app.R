@@ -1,7 +1,9 @@
 library(shiny)
 library(bslib)
 
-ui <- bslib::page_fluid()
+ui <- bslib::page_fluid(
+  titlePanel("Exploration des Diamants")
+)
 
 server <- function(input, output, session){
   
