@@ -41,10 +41,12 @@ ui <- bslib::page_fluid(
 
 server <- function(input, output, session){
   
-  rv <- reactiveValues()
+  rv <- reactiveValues(filter = NULL)
   
   observeEvent(input$button, {
     
+    rv$filter <- diamonds |>
+      filter(price <= input$prix & color == input$select)
     
     
   })
