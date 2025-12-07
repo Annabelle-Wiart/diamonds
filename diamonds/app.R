@@ -34,7 +34,7 @@ ui <- bslib::page_fluid(
       
     ),
     mainPanel(
-      
+      plotly::plotlyOutput("Plotdiam")
     )
   )
 )
@@ -55,6 +55,10 @@ server <- function(input, output, session){
     
     rv$tab <- rv$filter |>
       select("carat", "cut", "color", "clarity", "depth", "table", "price")
+    
+    output$Plotdiam <- plotly::renderPlotly({
+      plotly::ggplotly(rv$plot)
+    })
     
   })
   
