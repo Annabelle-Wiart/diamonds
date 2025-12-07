@@ -43,7 +43,11 @@ server <- function(input, output, session){
   
   rv <- reactiveValues()
   
-  
+  observeEvent(input$button, {
+    
+    
+    
+  })
   
 }
   
