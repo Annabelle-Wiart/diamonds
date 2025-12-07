@@ -15,7 +15,12 @@ ui <- bslib::page_fluid(
       radioButtons(inputId = "radio", 
                    label = "Colorier les points en rose ?",
                    choices = list("Oui" = 1, "Non" = 2), 
-                   selected = 1)
+                   selected = 1),
+      
+      selectInput(inputId = "select", 
+                  label = "Choisir une couleur à filtrer :", 
+                  choices = list("D", "E", "F", "G", "H", "I", "J"), 
+                  selected = 1)
       
     ),
     mainPanel(
