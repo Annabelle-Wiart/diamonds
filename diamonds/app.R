@@ -27,7 +27,10 @@ ui <- bslib::page_fluid(
                   label = "Prix maximum :",
                   min = 300,
                   max = 20000,
-                  value = 5000)
+                  value = 5000),
+      
+      actionButton(inputId = "button",
+                   label = "Visualiser le graph")
       
     ),
     mainPanel(
