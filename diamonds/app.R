@@ -20,7 +20,14 @@ ui <- bslib::page_fluid(
       selectInput(inputId = "select", 
                   label = "Choisir une couleur à filtrer :", 
                   choices = list("D", "E", "F", "G", "H", "I", "J"), 
-                  selected = 1)
+                  selected = 1),
+      
+      
+      sliderInput(inputId = "prix",
+                  label = "Prix maximum :",
+                  min = 300,
+                  max = 20000,
+                  value = 5000)
       
     ),
     mainPanel(
