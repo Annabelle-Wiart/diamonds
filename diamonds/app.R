@@ -41,7 +41,7 @@ ui <- bslib::page_fluid(
 
 server <- function(input, output, session){
   
-  rv <- reactiveValues(filter = NULL, plot = NULL)
+  rv <- reactiveValues(filter = NULL, plot = NULL, tab = NULL)
   
   observeEvent(input$button, {
     
@@ -52,6 +52,9 @@ server <- function(input, output, session){
       ggplot(aes(x=carat, y=price)) +
       geom_point(color = ifelse(input$radio == 1, "#FFBFCB", "black")) + 
       labs(title = paste("prix:", input$prix, "& color:", input$select))
+    
+    rv$tab <- rv$filter |>
+      select("carat", "cut", "color", "clarity", "depth", "table", "price")
     
   })
   
